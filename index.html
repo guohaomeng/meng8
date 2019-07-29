@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="css/base.css">
+    <title>Document</title>
+    <style>
+    h1{text-align: center;font-size: 1.4em;}
+    
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>数据的动态更新</h1>
+        <div id="left1">
+            <p>现在的气温：<span id="temp">27</span>&deg;C</p>
+            <p>现在的湿度：<span id="hum">69</span>%</p>
+            <p>时间：<span id="time">12:00</span></p>
+            <script>
+                $(function(){
+                    $("temp").html("21");
+                });
+                function play(){
+                    $.getJSON("json/test.json","",function(data){
+                        $.each(data.first,function(i,item){
+                            $("#hum").html(item.value);
+                            $("#time").html(item.time);
+                            $.delay(1000);
+                        });
+
+                    })
+                }
+                setInterval("play()",9000);
+            </script>
+        </div>
+
+
+    </div>
+
+</body>
+</html>
