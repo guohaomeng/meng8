@@ -23,19 +23,19 @@
                 $(function(){
                     $("temp").html("21");
                 });
-                function play(){
+                function gethum(){
                     $.getJSON("json/test.json","",function(data){
                         $.each(data.first,function(i,item){
-                            function paly2(){
+                            setTimeout(function(){
                                 $("#hum").html(item.value);
                                 $("#time").html(item.time);
-                            }
-                            setInterval("play2()" ,1000);
+                            },1000)
+                      
                         });
 
                     })
                 }
-                setInterval("play()",9000);
+                setInterval("gethum()",9000);
             </script>
         </div>
 
