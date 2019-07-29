@@ -26,9 +26,11 @@
                 function play(){
                     $.getJSON("json/test.json","",function(data){
                         $.each(data.first,function(i,item){
-                            $("#hum").html(item.value);
-                            $("#time").html(item.time);
-                            $.delay(1000);
+                            function paly2(){
+                                $("#hum").html(item.value);
+                                $("#time").html(item.time);
+                            }
+                            setInterval("play2()" ,1000);
                         });
 
                     })
