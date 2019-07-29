@@ -23,7 +23,7 @@
                 function play2(){
                     $("#temp").html("21");
                     $("#hum").html("69");
-                    $("#temp").html("12:00");
+                    $("#time").html("12:00");
                 }
                 function gethum(){
                     $.getJSON("json/test.json","",function(data){
@@ -31,14 +31,14 @@
                             setTimeout(function(){
                                 $("#hum").html(item.value);
                                 $("#time").html(item.time);
-                            },1000)
+                            },10)
                       
                         });
 
                     })
                 }
-                setInterval("gethum()",9000);
-                setInterval("play2()",9600);
+                setInterval("gethum()",5000);
+                setInterval("play2()",5600);
             </script>
         </div>
 
