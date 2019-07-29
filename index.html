@@ -20,9 +20,11 @@
             <p>现在的湿度：<span id="hum">69</span>%</p>
             <p>时间：<span id="time">12:00</span></p>
             <script>
-                $(function(){
-                    $("temp").html("21");
-                });
+                function play2(){
+                    $("#temp").html("21");
+                    $("#hum").html("69");
+                    $("#temp").html("12:00");
+                }
                 function gethum(){
                     $.getJSON("json/test.json","",function(data){
                         $.each(data.first,function(i,item){
@@ -36,6 +38,7 @@
                     })
                 }
                 setInterval("gethum()",9000);
+                setInterval("play2()",9600);
             </script>
         </div>
 
